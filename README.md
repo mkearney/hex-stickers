@@ -3,9 +3,9 @@
 
 # hex-stickers
 
-A repo for my hex stickers. You can find all the code used to create the
-hex logos as well as the [PNGS](PNG) versions and eventually SVG (work
-in progress).
+A repo for my hex stickers. You can find all the [code used to create
+the hex logos](code.R) as well as the [PNG](PNG) versions (eventually
+I’ll fix the SVG versions).
 
 ``` r
 list.files("PNG") %>% 
