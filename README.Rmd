@@ -17,7 +17,7 @@ logos as well as the [PNGS](PNG) versions and eventually SVG (work in progress).
 
 ```{r, results = 'asis'}
 list.files("PNG") %>% 
-  sprintf("<p style='align:center'> <img src='PNG/%s' width='200px' /> </p>", .) %>%
+  sprintf("<p align='center'> <img src='PNG/%s' width='200px' /> </p>", .) %>%
   paste(collapse = "\n\n") %>% 
   cat(fill = TRUE)
 ```
