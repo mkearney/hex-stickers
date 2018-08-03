@@ -14,17 +14,11 @@ list.files("PNG") %>%
   cat(fill = TRUE)
 ```
 
-<p style="align:center">
 
-<img src='PNG/chr.png' width='200px' />
+<p style="align:center"> <img src='PNG/chr.png' width='200px' /> </p>
 
-</p>
 
-<p style="align:center">
-
-<img src='PNG/funique.png' width='200px' />
-
-</p>
+<p style="align:center"> <img src='PNG/funique.png' width='200px' /> </p>
 
 <p style="align:center">
 
