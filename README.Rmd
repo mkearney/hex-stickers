@@ -1,0 +1,23 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+# hex-stickers
+
+A repo for my hex stickers. You can find all the code used to create the hex 
+logos as well as the [PNGS](PNG) versions and eventually SVG (work in progress).
+
+```{r, results = 'asis'}
+list.files("PNG") %>% 
+  sprintf("<p style='align:center'> <img src='PNG/%s' width='200px' /> </p>", .) %>%
+  paste(collapse = "\n\n") %>% 
+  cat(fill = TRUE)
+```
