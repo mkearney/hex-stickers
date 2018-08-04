@@ -200,7 +200,7 @@ p + ggsave("SVG/tidyreg.svg", width = (1.73/2) * 8, height = 8, units = "in",
 ##                                   tidysem                                  ##
 ##----------------------------------------------------------------------------##
 
-make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy",
+p <- make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy",
   pkg = "tidysem", pkg_size = 28, pkg_color = "#ffffff", pkg_y = -.315,
   icon = "", fa = "Font Awesome 5 Free Solid",
   icon_color = "#F1B82D", icon_size = 64,
@@ -217,7 +217,7 @@ p + ggsave("SVG/tidysem.svg", width = (1.73/2) * 8, height = 8, units = "in",
 ##                                   tidymlm                                  ##
 ##----------------------------------------------------------------------------##
 
-make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy",
+p <- make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy",
   pkg = "tidymlm", pkg_size = 28, pkg_color = "#ffffff", pkg_y = -.315,
   icon = "", fa = "Font Awesome 5 Free Solid",
   icon_color = "#F1B82D", icon_size = 64,
@@ -234,7 +234,7 @@ p + ggsave("SVG/tidymlm.svg", width = (1.73/2) * 8, height = 8, units = "in",
 ##                                   tidycor                                  ##
 ##----------------------------------------------------------------------------##
 
-make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy",
+p <- make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy",
   pkg = "tidycor", pkg_size = 28, pkg_color = "#ffffff", pkg_y = -.315,
   icon = "", fa = "Font Awesome 5 Free Solid",
   icon_color = "#F1B82D", icon_size = 64,
@@ -252,7 +252,7 @@ p + ggsave("SVG/tidycor.svg", width = (1.73/2) * 8, height = 8, units = "in",
 ##                                   tidycat                                  ##
 ##----------------------------------------------------------------------------##
 
-make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy",
+p <- make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy",
   pkg = "tidycat", pkg_size = 28, pkg_color = "#ffffff", pkg_y = -.315,
   icon = "", fa = "Font Awesome 5 Free Solid",
   icon_color = "#F1B82D", icon_size = 64,
