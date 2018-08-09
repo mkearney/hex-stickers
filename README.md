@@ -7,6 +7,16 @@ A repo for my hex stickers. You can find all the [code used to create
 the hex logos](code.R) as well as the [PNG](PNG) versions (eventually
 I’ll fix the SVG versions).
 
+I use these stickers for my R packages and for [my personal
+website](https://mikewk.com).
+
+## Icons
+
+These stickers use [fontawesome](https://fontawesome.com) icons. To use
+these icons on your local machine, [download a copy of the
+icons](https://fontawesome.com/how-to-use/on-the-desktop/setup/getting-started)
+and install the \[three\] *`.otf`* font files.
+
 ``` r
 list.files("PNG") %>% 
   sprintf("<p align='center'> <img src='PNG/%s' width='200px' /> </p>", .) %>%
@@ -22,7 +32,31 @@ list.files("PNG") %>%
 
 <p align="center">
 
+<img src='PNG/cv.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/friendship.png' width='200px' />
+
+</p>
+
+<p align="center">
+
 <img src='PNG/funique.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/github.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/google-scholar.png' width='200px' />
 
 </p>
 
@@ -76,7 +110,25 @@ list.files("PNG") %>%
 
 <p align="center">
 
+<img src='PNG/research-gate.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/researchgate.png' width='200px' />
+
+</p>
+
+<p align="center">
+
 <img src='PNG/rtweet.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/scholar.png' width='200px' />
 
 </p>
 
@@ -137,6 +189,12 @@ list.files("PNG") %>%
 <p align="center">
 
 <img src='PNG/tweetbotornot.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/twitter.png' width='200px' />
 
 </p>
 
