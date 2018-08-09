@@ -30,6 +30,37 @@ make_hexsticker <- function(pkg, pkg_size, pkg_color, pkg_y = -.33, bg,
       size = 8, angle = 30, color = url_color)
 }
 
+## function to make basic hex sticker
+make_hexsticker_backspot <- function(pkg, pkg_size, pkg_color, pkg_y = -.33, bg,
+                                     border, icon, family,
+                                     url, icon_color,icon_size,
+                                     url_color = "transparent",
+                                     fa = "Font Awesome 5 Brands",
+                                     icon_y = .25, icon_x = 0,
+                                     backspot_data, backspot_fill) {
+  x <- c(0, 0.865,  0.865,  0, -0.865, -0.865, 0)
+  y <- c(1, 0.5  , -0.5,   -1, -0.5,    0.5,   1)
+  h <- data.frame(x, y)
+  xx <- .825
+  x <- c(0, xx,  xx,  0, -xx, -xx, 0)
+  yy <- 0.475
+  y <- c(.95, yy  , -yy,   -.95, -yy,    yy,   .95)
+  h2 <- data.frame(x, y)
+
+  ggplot(h, aes(x, y)) +
+    geom_polygon(fill = border, size = 0) +
+    geom_polygon(data = h2, fill = bg, size = 0) +
+    geom_polygon(data = backspot_data, fill = backspot_fill) +
+    geom_text(data = data.frame(x = icon_x, y = icon_y),
+      aes(label = icon), family = fa,
+      color = icon_color, size = icon_size) +
+    theme_void() +
+    annotate("text", 0, pkg_y, label = pkg, family = family,
+      size = pkg_size, color = pkg_color) +
+    annotate("text", .225, -.76, label = url, family = family,
+      size = 8, angle = 30, color = url_color)
+}
+
 ## function to make shaded two-sided hex sticker
 make_hexsticker2 <- function(pkg, pkg_size, pkg_y = -.33, bg1, bg2, border1,
                              border2, icon, family,
@@ -488,4 +519,110 @@ p + ggsave("SVG/newsAPI.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
+##----------------------------------------------------------------------------##
+##                                   researchgate                                   ##
+##----------------------------------------------------------------------------##
 
+
+p <- make_hexsticker_backspot(bg = "#00CCBB", border = "#004455", family = "Avenir Heavy",
+  pkg = "", pkg_size = 24, pkg_color = "#ffffff", pkg_y = -.295,
+  icon = "", fa = "Font Awesome 5 Brands",
+  icon_color = "#00CCBB", icon_size = 122, icon_y = .05,
+  url = "", backspot_data = data.frame(x = c(-.3, .3, .3, -.3), y = c(-.275, -.275, .3, .3)),
+  backspot_fill = "white")
+
+p + ggsave("PNG/research-gate.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggsave("SVG/research-gate.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+
+
+
+##----------------------------------------------------------------------------##
+##                                 friendship                                 ##
+##----------------------------------------------------------------------------##
+
+
+p <- make_hexsticker(bg = "#ffffff", border = "#000000", family = "Avenir Heavy",
+  pkg = "friendship", pkg_size = 28, pkg_color = "#000000", pkg_y = -.295,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#000000", icon_size = 64, icon_y = .25,
+  url = "")
+
+p + ggsave("PNG/friendship.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggsave("SVG/friendship.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+##----------------------------------------------------------------------------##
+##                                   scholar                                  ##
+##----------------------------------------------------------------------------##
+
+p <- make_hexsticker(bg = "#ffffff", border = "#db3236", family = "Avenir Heavy",
+  pkg = "scholar", pkg_size = 34, pkg_color = "#f4c20d", pkg_y = -.325,
+  icon = "", fa = "Font Awesome 5 Brands",
+  icon_color = "#4885ed", icon_size = 64, icon_y = .275,
+  url = "")
+
+p + ggsave("PNG/google-scholar.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggsave("SVG/google-scholar.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+
+##----------------------------------------------------------------------------##
+##                                     CV                                     ##
+##----------------------------------------------------------------------------##
+
+p <- make_hexsticker(bg = "#ffffff", border = "#000000", family = "Avenir Heavy",
+  pkg = "CV", pkg_size = 78, pkg_color = "#000000", pkg_y = 0,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#ffffff", icon_size = 64, icon_y = .25,
+  url = "")
+
+p + ggsave("PNG/cv.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggsave("SVG/cv.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+
+##----------------------------------------------------------------------------##
+##                                   github                                   ##
+##----------------------------------------------------------------------------##
+
+p <- make_hexsticker(bg = "#000000", border = "#000000", family = "Avenir Heavy",
+  pkg = "", pkg_size = 78, pkg_color = "#000000", pkg_y = 0,
+  icon = "", fa = "Font Awesome 5 Brands",
+  icon_color = "#ffffff", icon_size = 98, icon_y = .05,
+  url = "")
+
+p + ggsave("PNG/github.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggsave("SVG/github.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+
+
+
+##----------------------------------------------------------------------------##
+##                                   twitter                                  ##
+##----------------------------------------------------------------------------##
+
+
+p <- make_hexsticker(bg = "#1DA1F2", border = "#1DA1F2", family = "Avenir Heavy",
+  pkg = "", pkg_size = 78, pkg_color = "#ffffff", pkg_y = 0,
+  icon = "", fa = "Font Awesome 5 Brands",
+  icon_color = "#ffffff", icon_size = 88, icon_y = .05,
+  url = "")
+
+p + ggsave("PNG/twitter.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggsave("SVG/twitter.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
