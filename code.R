@@ -636,11 +636,11 @@ p + ggsave("SVG/twitter.svg", width = (1.73/2) * 8,
 
 
 p <- make_hexsticker(bg = "#F1B82D", border = "#000000", family = "Avenir Heavy",
-  pkg = "JOURN_8016", pkg_size = 21, pkg_color = "#000000", pkg_y = -.3,
+  pkg = "JOURN_8016", pkg_size = 20, pkg_color = "#000000", pkg_y = -.29,
   icon = "", fa = "Font Awesome 5 Free Solid",
   icon_color = "#000000", icon_size = 62, icon_y = .275,
-  url = "https://mkearney.github.io/JOURN_8016", url_color = "black",
-  url_size = 4, url_x = .38, url_y = -.69)
+  url = "stat.mikewk.com", url_color = "#000000",
+  url_size = 10, url_x = .38, url_y = -.67)
 
 p + ggsave("PNG/journ8016.png", width = (1.73/2) * 8,
            height = 8, units = "in", bg = "transparent")
