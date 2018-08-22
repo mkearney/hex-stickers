@@ -2,9 +2,10 @@
 library(ggplot2)
 
 ## function to make basic hex sticker
-make_hexsticker <- function(pkg, pkg_size, pkg_color, pkg_y = -.33, bg,
-                            border, icon, family,
-                            url, icon_color,icon_size,
+make_hexsticker <- function(pkg, pkg_size, pkg_color, pkg_y = -.33,
+                            bg, border,
+                            icon, icon_color, icon_size, family,
+                            url, url_size = 8, url_x = .225, url_y = -.76,
                             url_color = "transparent",
                             fa = "Font Awesome 5 Brands",
                             icon_y = .25, icon_x = 0) {
@@ -26,8 +27,8 @@ make_hexsticker <- function(pkg, pkg_size, pkg_color, pkg_y = -.33, bg,
     theme_void() +
     annotate("text", 0, pkg_y, label = pkg, family = family,
       size = pkg_size, color = pkg_color) +
-    annotate("text", .225, -.76, label = url, family = family,
-      size = 8, angle = 30, color = url_color)
+    annotate("text", url_x, url_y, label = url, family = family,
+      size = url_size, angle = 30, color = url_color)
 }
 
 ## function to make basic hex sticker
@@ -626,3 +627,23 @@ p + ggsave("PNG/twitter.png", width = (1.73/2) * 8,
 
 p + ggsave("SVG/twitter.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
+
+
+
+##----------------------------------------------------------------------------##
+##                                  journ8016                                 ##
+##----------------------------------------------------------------------------##
+
+
+p <- make_hexsticker(bg = "#F1B82D", border = "#000000", family = "Avenir Heavy",
+  pkg = "JOURN_8016", pkg_size = 21, pkg_color = "#000000", pkg_y = -.3,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#000000", icon_size = 62, icon_y = .275,
+  url = "https://mkearney.github.io/JOURN_8016", url_color = "black",
+  url_size = 4, url_x = .38, url_y = -.69)
+
+p + ggsave("PNG/journ8016.png", width = (1.73/2) * 8,
+           height = 8, units = "in", bg = "transparent")
+
+p + ggsave("SVG/journ8016.png", width = (1.73/2) * 8,
+           height = 8, units = "in", bg = "transparent")
