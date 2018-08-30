@@ -645,5 +645,32 @@ p <- make_hexsticker(bg = "#F1B82D", border = "#000000", family = "Avenir Heavy"
 p + ggsave("PNG/journ8016.png", width = (1.73/2) * 8,
            height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/journ8016.png", width = (1.73/2) * 8,
+p + ggsave("SVG/journ8016.svg", width = (1.73/2) * 8,
            height = 8, units = "in", bg = "transparent")
+
+
+
+
+##----------------------------------------------------------------------------##
+##                                getwebdata                                  ##
+##----------------------------------------------------------------------------##
+
+
+p <- make_hexsticker(bg = "#ff66aa", border = "#993366", family = "Avenir Heavy",
+  pkg = "getwebdata", pkg_size = 20, pkg_color = "#ffffff", pkg_y = -.29,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#993366", icon_size = 62, icon_y = .275,
+  url = "getwebdata.mikewk.com", url_color = "#ffffff",
+  url_size = 7, url_x = .38, url_y = -.67)
+
+p + ggsave("PNG/getwebdata.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+browseURL("PNG/getwebdata.png")
+p + ggsave("SVG/getwebdata.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+
+
+
+
+
