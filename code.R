@@ -671,6 +671,26 @@ p + ggsave("SVG/getwebdata.svg", width = (1.73/2) * 8,
 
 
 
+##----------------------------------------------------------------------------##
+##                              data-scribers                                 ##
+##----------------------------------------------------------------------------##
+
+p <- make_hexsticker(bg = "#ffbb55", border = "#550033", family = "Avenir Heavy",
+  pkg = "data-scribers", pkg_size = 24, pkg_color = "#771155", pkg_y = -.275,
+  icon = "", fa = "Font Awesome 5 Brands",
+  icon_color = "#993377", icon_size = 62, icon_y = .275,
+  url = "data-scribers.mikewk.com", url_color = "#771155",
+  url_size = 7, url_x = .38, url_y = -.67)
+
+p + ggsave("PNG/data-scribers.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggsave("SVG/data-scribers.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+
+
+
 
 
 
