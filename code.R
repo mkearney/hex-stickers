@@ -665,7 +665,7 @@ p <- make_hexsticker(bg = "#ff66aa", border = "#993366", family = "Avenir Heavy"
 
 p + ggsave("PNG/getwebdata.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
-browseURL("PNG/getwebdata.png")
+
 p + ggsave("SVG/getwebdata.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
@@ -675,11 +675,11 @@ p + ggsave("SVG/getwebdata.svg", width = (1.73/2) * 8,
 ##                              data-scribers                                 ##
 ##----------------------------------------------------------------------------##
 
-p <- make_hexsticker(bg = "#ffbb55", border = "#550033", family = "Avenir Heavy",
-  pkg = "data-scribers", pkg_size = 24, pkg_color = "#771155", pkg_y = -.275,
-  icon = "", fa = "Font Awesome 5 Brands",
-  icon_color = "#993377", icon_size = 62, icon_y = .275,
-  url = "data-scribers.mikewk.com", url_color = "#771155",
+p <- make_hexsticker(bg = "#303036", border = "#000000", family = "Avenir Heavy",
+  pkg = "data-scribers", pkg_size = 22, pkg_color = "#ffffff", pkg_y = -.275,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#dd3399", icon_size = 66, icon_y = .275,
+  url = "data-scribers.mikewk.com", url_color = "#dd3399",
   url_size = 7, url_x = .38, url_y = -.67)
 
 p + ggsave("PNG/data-scribers.png", width = (1.73/2) * 8,
