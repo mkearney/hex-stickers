@@ -694,3 +694,21 @@ p + ggsave("SVG/data-scribers.svg", width = (1.73/2) * 8,
 
 
 
+
+##----------------------------------------------------------------------------##
+##                                mizzourahmd                                 ##
+##----------------------------------------------------------------------------##
+
+
+p <- make_hexsticker(bg = "#F1B82D", border = "#000000", family = "Avenir Heavy",
+  pkg = "mizzourahmd", pkg_size = 20, pkg_color = "#000000", pkg_y = -.265,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#000000", icon_size = 62, icon_y = .275,
+  url = "mizzourahmd.mikewk.com", url_color = "#000000",
+  url_size = 7, url_x = .38, url_y = -.67)
+
+p + ggsave("PNG/mizzourahmd.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggsave("SVG/mizzourahmd.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
