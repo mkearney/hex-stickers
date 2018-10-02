@@ -712,3 +712,24 @@ p + ggsave("PNG/mizzourahmd.png", width = (1.73/2) * 8,
 
 p + ggsave("SVG/mizzourahmd.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
+
+
+
+
+##----------------------------------------------------------------------------##
+##                                 reflowdoc                                  ##
+##----------------------------------------------------------------------------##
+
+
+p <- make_hexsticker(bg = "#fff0ff", border = "#6f606f", family = "Avenir Heavy",
+  pkg = "reflowdoc", pkg_size = 28, pkg_color = "#6f606f", pkg_y = -.275,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#cc8800", icon_size = 62, icon_y = .295,
+  url = "reflowdoc.mikewk.com", url_color = "#cc8800",
+  url_size = 8, url_x = .38, url_y = -.67)
+
+p + ggsave("PNG/reflowdoc.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggsave("SVG/reflowdoc.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
