@@ -757,3 +757,19 @@ p + ggsave("PNG/comissourian.png", width = (1.73/2) * 8,
 
 p + ggsave("SVG/comissourian.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
+
+
+
+
+
+
+p <- make_hexsticker(bg = "#ffffff", border = "#2f4879",
+  family = "Clarendon Cn BT Bold",
+  pkg = "MISSOURIAN", pkg_size = 30, pkg_color = "#2f4879", pkg_y = .0,
+  icon = "  ", fa = "stateshapes",
+  icon_color = "#2f487955", icon_size = 54, icon_y = .24,
+  url = "columbiamissourian.com", url_color = "#2f4879",
+  url_size = 9, url_x = .38, url_y = -.67)
+
+p + ggsave("PNG/comissourian.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
