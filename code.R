@@ -4,7 +4,7 @@ library(ggplot2)
 ## function to make basic hex sticker
 make_hexsticker <- function(pkg, pkg_size, pkg_color, pkg_y = -.33,
                             bg, border,
-                            icon, icon_color, icon_size, family,
+                            icon, icon_color, icon_size, family, face = "plain",
                             url, url_size = 8, url_x = .225, url_y = -.76,
                             url_color = "transparent",
                             fa = "Font Awesome 5 Brands",
@@ -26,9 +26,9 @@ make_hexsticker <- function(pkg, pkg_size, pkg_color, pkg_y = -.33,
       color = icon_color, size = icon_size) +
     theme_void() +
     annotate("text", 0, pkg_y, label = pkg, family = family,
-      size = pkg_size, color = pkg_color) +
+      size = pkg_size, color = pkg_color, fontface = face) +
     annotate("text", url_x, url_y, label = url, family = family,
-      size = url_size, angle = 30, color = url_color)
+      size = url_size, angle = 30, color = url_color, fontface = face)
 }
 
 ## function to make basic hex sticker
@@ -732,4 +732,28 @@ p + ggsave("PNG/reflowdoc.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 p + ggsave("SVG/reflowdoc.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+
+
+
+
+
+##----------------------------------------------------------------------------##
+##                               comissourian                                 ##
+##----------------------------------------------------------------------------##
+
+
+p <- make_hexsticker(bg = "#ffffff", border = "#2f4879",
+  family = "Clarendon Cn BT Bold",
+  pkg = "MISSOURIAN", pkg_size = 30, pkg_color = "#2f4879", pkg_y = .0,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#cc8800", icon_size = 12, icon_y = .295,
+  url = "columbiamissourian.com", url_color = "#2f4879",
+  url_size = 9, url_x = .38, url_y = -.67)
+
+p + ggsave("PNG/comissourian.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggsave("SVG/comissourian.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
