@@ -742,27 +742,6 @@ p + ggsave("SVG/reflowdoc.svg", width = (1.73/2) * 8,
 ##----------------------------------------------------------------------------##
 ##                               comissourian                                 ##
 ##----------------------------------------------------------------------------##
-
-
-p <- make_hexsticker(bg = "#ffffff", border = "#2f4879",
-  family = "Clarendon Cn BT Bold",
-  pkg = "MISSOURIAN", pkg_size = 30, pkg_color = "#2f4879", pkg_y = .0,
-  icon = "", fa = "Font Awesome 5 Free Solid",
-  icon_color = "#cc8800", icon_size = 12, icon_y = .295,
-  url = "columbiamissourian.com", url_color = "#2f4879",
-  url_size = 9, url_x = .38, url_y = -.67)
-
-p + ggsave("PNG/comissourian.png", width = (1.73/2) * 8,
-  height = 8, units = "in", bg = "transparent")
-
-p + ggsave("SVG/comissourian.svg", width = (1.73/2) * 8,
-  height = 8, units = "in", bg = "transparent")
-
-
-
-
-
-
 p <- make_hexsticker(bg = "#ffffff", border = "#2f4879",
   family = "Clarendon Cn BT Bold",
   pkg = "MISSOURIAN", pkg_size = 30, pkg_color = "#2f4879", pkg_y = .0,
@@ -772,4 +751,26 @@ p <- make_hexsticker(bg = "#ffffff", border = "#2f4879",
   url_size = 9, url_x = .38, url_y = -.67)
 
 p + ggsave("PNG/comissourian.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+
+
+
+
+
+##----------------------------------------------------------------------------##
+##                                viewtweets                                  ##
+##----------------------------------------------------------------------------##
+
+
+p <- make_hexsticker(bg = "#2244bb", border = "#002266", family = "Avenir Heavy",
+  pkg = "viewtweets", pkg_size = 26, pkg_color = "#ffffff", pkg_y = -.25,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#ffffff", icon_size = 62, icon_y = .295,
+  url = "viewtweets.mikewk.com", url_color = "#ffffff",
+  url_size = 7, url_x = .38, url_y = -.67)
+
+p + ggsave("PNG/viewtweets.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+p + ggsave("SVG/viewtweets.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
