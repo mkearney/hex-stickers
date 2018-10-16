@@ -774,3 +774,24 @@ p + ggsave("PNG/viewtweets.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 p + ggsave("SVG/viewtweets.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
+
+
+
+
+
+##----------------------------------------------------------------------------##
+##                                qualtricks                                  ##
+##----------------------------------------------------------------------------##
+
+
+p <- make_hexsticker(bg = "#c5050c", border = "#282728", family = "Avenir Heavy",
+  pkg = "qualtricks", pkg_size = 24, pkg_color = "#f7f7f7", pkg_y = -.25,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#9b0000", icon_size = 62, icon_y = .295,
+  url = "qualtricks.mikewk.com", url_color = "#f7f7f7",
+  url_size = 6, url_x = .38, url_y = -.67)
+
+p + ggsave("PNG/qualtricks.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+p + ggsave("SVG/qualtricks.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
