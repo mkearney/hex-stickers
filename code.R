@@ -827,3 +827,28 @@ p + ggsave("PNG/dapr.png", width = (1.73/2) * 8,
 
 p + ggsave("SVG/dapr.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
+
+
+
+
+
+
+
+##----------------------------------------------------------------------------##
+##                               DATA SCIENCE\nANALYTICS                      ##
+##----------------------------------------------------------------------------##
+p <- make_hexsticker(bg = "#F1B82D", border = "#000000",
+  family = "Clarendon Cn BT Bold",
+  pkg = "Data Science &", pkg_size = 22, pkg_color = "#000000", pkg_y = -.1,
+  icon = "MU", fa = "Clarendon LT Std",
+  icon_color = "#000000bb", icon_size = 54, icon_y = .295,
+  url = "dsa.missouri.edu", url_color = "#000000bb",
+  url_size = 10, url_x = .38, url_y = -.67)
+
+p <- p +
+  geom_text(data = data.frame(x = 0, y = -.35),
+    aes(label = "Analytics"), family = "Clarendon LT Std",
+    color = "#000000", size = 22)
+
+p + ggsave("PNG/mudsa.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
