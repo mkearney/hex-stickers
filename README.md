@@ -32,7 +32,31 @@ list.files("PNG") %>%
 
 <p align="center">
 
+<img src='PNG/comissourian.png' width='200px' />
+
+</p>
+
+<p align="center">
+
 <img src='PNG/cv.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/dapr.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/data-scribers.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/dowhen.png' width='200px' />
 
 </p>
 
@@ -45,6 +69,12 @@ list.files("PNG") %>%
 <p align="center">
 
 <img src='PNG/funique.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/getwebdata.png' width='200px' />
 
 </p>
 
@@ -74,7 +104,25 @@ list.files("PNG") %>%
 
 <p align="center">
 
+<img src='PNG/journ8016.png' width='200px' />
+
+</p>
+
+<p align="center">
+
 <img src='PNG/kaggler.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/mizzourahmd.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/mudsa.png' width='200px' />
 
 </p>
 
@@ -105,6 +153,18 @@ list.files("PNG") %>%
 <p align="center">
 
 <img src='PNG/pkgverse.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/qualtricks.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/reflowdoc.png' width='200px' />
 
 </p>
 
@@ -201,6 +261,12 @@ list.files("PNG") %>%
 <p align="center">
 
 <img src='PNG/useapi.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/viewtweets.png' width='200px' />
 
 </p>
 
