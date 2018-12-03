@@ -852,3 +852,21 @@ p <- p +
 
 p + ggsave("PNG/mudsa.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
+
+
+
+##----------------------------------------------------------------------------##
+##                                   DOWHEN                                   ##
+##----------------------------------------------------------------------------##
+
+p <- make_hexsticker(bg = "#600060", border = "#300030", family = "Avenir Heavy",
+  pkg = "dowhen", pkg_size = 30, pkg_color = "#ffffff", pkg_y = -.255,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#f060f0", icon_size = 62, icon_y = .295,
+  url = "dowhen.mikewk.com", url_color = "#f060f0",
+  url_size = 8, url_x = .38, url_y = -.67)
+
+p + ggsave("PNG/dowhen.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+p + ggsave("SVG/dowhen.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
