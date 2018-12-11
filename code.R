@@ -872,3 +872,31 @@ p + ggsave("PNG/dowhen.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 p + ggsave("SVG/dowhen.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
+
+
+
+
+
+##----------------------------------------------------------------------------##
+##                              SHOULDBEVERIFIED                              ##
+##----------------------------------------------------------------------------##
+
+
+p <- make_hexsticker2(bg1 = "#111111", bg2 = "#333333",
+  border1 = "#000000", border2 = "#222222",
+  family = "Avenir Heavy", pkg = "shouldbeverified", pkg_size = 21,
+  pkg_color = "transparent", pkg_y = -.315,
+  icon = " ", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#bbbbbb", icon_size = 42, icon_y = .2,
+  url = "shouldbeverified.mikewk.com", url_color = "#ffffff") +
+  geom_line(data = data.frame(x = c(.2, .725), y = c(-.025, .3125)),
+    color = "#991111", size = 4) +
+  geom_line(data = data.frame(x = c(-.2, -.65), y = c(-.055, -.12)),
+    color = "#119911", size = 3)
+
+p + ggsave("PNG/shouldbeverified.png", width = (1.73/2) * 8, height = 8,
+  units = "in", bg = "transparent")
+
+p + ggsave("SVG/shouldbeverified.svg", width = (1.73/2) * 8, height = 8,
+  units = "in", bg = "transparent")
+
