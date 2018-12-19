@@ -900,3 +900,20 @@ p + ggsave("PNG/shouldbeverified.png", width = (1.73/2) * 8, height = 8,
 p + ggsave("SVG/shouldbeverified.svg", width = (1.73/2) * 8, height = 8,
   units = "in", bg = "transparent")
 
+
+
+##----------------------------------------------------------------------------##
+##                                  h.rtweet                                  ##
+##----------------------------------------------------------------------------##
+
+p <- make_hexsticker(pkg = "h.rtweet", bg = "#ffffff", border = "#660000", icon = "",
+  icon_color = "#aa0000cc", family = "Avenir Heavy", icon_size = 78, pkg_size = 30,
+  icon_y = .30, pkg_y = -.29,
+  url = "github.com/mkearney/h.rtweet", pkg_color = "#aa0000", url_size = 5,
+  url_color = "#aa0000", fa = "Font Awesome 5 Brands", url_x = .4, url_y = -.665)
+
+p + ggsave("PNG/h.rtweet.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggsave("SVG/h.rtweet.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")

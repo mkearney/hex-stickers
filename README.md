@@ -92,6 +92,12 @@ list.files("PNG") %>%
 
 <p align="center">
 
+<img src='PNG/h.rtweet.png' width='200px' />
+
+</p>
+
+<p align="center">
+
 <img src='PNG/hexagon.png' width='200px' />
 
 </p>
@@ -189,6 +195,12 @@ list.files("PNG") %>%
 <p align="center">
 
 <img src='PNG/scholar.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/shouldbeverified.png' width='200px' />
 
 </p>
 
