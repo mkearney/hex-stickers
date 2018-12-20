@@ -805,23 +805,14 @@ p + ggsave("SVG/qualtricks.svg", width = (1.73/2) * 8,
 ##                                   dapr                                     ##
 ##----------------------------------------------------------------------------##
 
-
-p <- make_hexsticker(bg = "#c5050c", border = "#282728", family = "Avenir Heavy",
-  pkg = "dapr", pkg_size = 30, pkg_color = "#f7f7f7", pkg_y = -.255,
-  icon = "", fa = "Font Awesome 5 Brands",
-  icon_color = "#9b0000", icon_size = 62, icon_y = .295,
-  url = "dapr.mikewk.com", url_color = "#f7f7f7",
-  url_size = 8, url_x = .38, url_y = -.67)
-
 p <- make_hexsticker_backspot(
-  bg = "#000000", border = "#000000", family = "Avenir Heavy",
-  pkg = "dapr", pkg_size = 34, pkg_color = "#ffffff", pkg_y = -.295,
+  bg = "#000000", border = "#000000", family = "Apple Chancery",
+  pkg = "dapr", pkg_size = 36, pkg_color = "#ffffff", pkg_y = -.295,
   icon = "", fa = "Font Awesome 5 Brands",
   icon_color = "#000000", icon_size = 72, icon_y = .25,
   url = "dapr.mikewk.com",
   backspot_data = data.frame(x = c(-.2, .2, .2, -.2), y = c(-.1, -.1, .55, .55)),
   backspot_fill = "#ffffff")
-
 
 p + ggsave("PNG/dapr.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
@@ -906,11 +897,11 @@ p + ggsave("SVG/shouldbeverified.svg", width = (1.73/2) * 8, height = 8,
 ##                                  h.rtweet                                  ##
 ##----------------------------------------------------------------------------##
 
-p <- make_hexsticker(pkg = "h.rtweet", bg = "#ffffff", border = "#660000", icon = "",
-  icon_color = "#aa0000cc", family = "Avenir Heavy", icon_size = 78, pkg_size = 30,
+p <- make_hexsticker(pkg = "h.rtweet", bg = "#aa0066cc", border = "#440022", icon = "",
+  icon_color = "#ffffff", family = "Avenir Heavy", icon_size = 78, pkg_size = 30,
   icon_y = .30, pkg_y = -.29,
-  url = "github.com/mkearney/h.rtweet", pkg_color = "#aa0000", url_size = 5,
-  url_color = "#aa0000", fa = "Font Awesome 5 Brands", url_x = .4, url_y = -.665)
+  url = "github.com/mkearney/h.rtweet", pkg_color = "#ffffff", url_size = 5,
+  url_color = "#ffffff", fa = "Font Awesome 5 Brands", url_x = .4, url_y = -.665)
 
 p + ggsave("PNG/h.rtweet.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
