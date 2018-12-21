@@ -1,5 +1,7 @@
-## load ggplot2
-library(ggplot2)
+## install ggplot2
+if (!requireNamespace("ggplot2", quietly = TRUE)) {
+  install.packages("ggplot2")
+}
 
 ## function to make basic hex sticker
 make_hexsticker <- function(pkg, pkg_size, pkg_color, pkg_y = -.33,
@@ -10,6 +12,7 @@ make_hexsticker <- function(pkg, pkg_size, pkg_color, pkg_y = -.33,
                             url_family = family,
                             fa = "Font Awesome 5 Brands",
                             icon_y = .25, icon_x = 0) {
+  ## hexagon(s) data (two data frames; one for better border effect)
   x <- c(0, 0.865,  0.865,  0, -0.865, -0.865, 0)
   y <- c(1, 0.5  , -0.5,   -1, -0.5,    0.5,   1)
   h <- data.frame(x, y)
@@ -18,17 +21,17 @@ make_hexsticker <- function(pkg, pkg_size, pkg_color, pkg_y = -.33,
   yy <- 0.475
   y <- c(.95, yy  , -yy,   -.95, -yy,    yy,   .95)
   h2 <- data.frame(x, y)
-
-  ggplot(h, aes(x, y)) +
-    geom_polygon(fill = border, size = 0) +
-    geom_polygon(data = h2, fill = bg, size = 0) +
-    geom_text(data = data.frame(x = icon_x, y = icon_y),
-      aes(label = icon), family = fa,
+  ## construct plot
+  ggplot2::ggplot(h, ggplot2::aes(x, y)) +
+    ggplot2::geom_polygon(fill = border, size = 0) +
+    ggplot2::geom_polygon(data = h2, fill = bg, size = 0) +
+    ggplot2::geom_text(data = data.frame(x = icon_x, y = icon_y),
+      ggplot2::aes(label = icon), family = fa,
       color = icon_color, size = icon_size) +
-    theme_void() +
-    annotate("text", 0, pkg_y, label = pkg, family = family,
+    ggplot2::theme_void() +
+    ggplot2::annotate("text", 0, pkg_y, label = pkg, family = family,
       size = pkg_size, color = pkg_color, fontface = face) +
-    annotate("text", url_x, url_y, label = url, family = url_family,
+    ggplot2::annotate("text", url_x, url_y, label = url, family = url_family,
       size = url_size, angle = 30, color = url_color, fontface = face)
 }
 
@@ -49,17 +52,17 @@ make_hexsticker_backspot <- function(pkg, pkg_size, pkg_color, pkg_y = -.33, bg,
   y <- c(.95, yy  , -yy,   -.95, -yy,    yy,   .95)
   h2 <- data.frame(x, y)
 
-  ggplot(h, aes(x, y)) +
-    geom_polygon(fill = border, size = 0) +
-    geom_polygon(data = h2, fill = bg, size = 0) +
-    geom_polygon(data = backspot_data, fill = backspot_fill) +
-    geom_text(data = data.frame(x = icon_x, y = icon_y),
-      aes(label = icon), family = fa,
+  ggplot2::ggplot(h, ggplot2::aes(x, y)) +
+    ggplot2::geom_polygon(fill = border, size = 0) +
+    ggplot2::geom_polygon(data = h2, fill = bg, size = 0) +
+    ggplot2::geom_polygon(data = backspot_data, fill = backspot_fill) +
+    ggplot2::geom_text(data = data.frame(x = icon_x, y = icon_y),
+      ggplot2::aes(label = icon), family = fa,
       color = icon_color, size = icon_size) +
-    theme_void() +
-    annotate("text", 0, pkg_y, label = pkg, family = family,
+    ggplot2::theme_void() +
+    ggplot2::annotate("text", 0, pkg_y, label = pkg, family = family,
       size = pkg_size, color = pkg_color) +
-    annotate("text", .225, -.76, label = url, family = family,
+    ggplot2::annotate("text", .225, -.76, label = url, family = family,
       size = 8, angle = 30, color = url_color)
 }
 
@@ -68,11 +71,12 @@ make_hexsticker2 <- function(pkg, pkg_size, pkg_y = -.33, bg1, bg2, border1,
                              border2, icon, family,
                              url, icon_color, icon_size, pkg_color,
                              url_color = "transparent",
+                             url_family = family,
                              fa = "Font Awesome 5 Brands", icon_y = .25) {
-  x1 <- c(0, 0.865,  0.865,  0, 0)
-  x2 <- c(0, -0.865, -0.865, 0, 0)
-  y1 <- c(1, 0.5  , -0.5,   -1, 1)
-  y2 <- c(-1, -0.5,    0.5,   1, -1)
+  x1 <- c(0, 0.865,  0.865,  0,  0)
+  x2 <- c(0, -0.865, -0.865, 0,  0)
+  y1 <- c(1, 0.5  , -0.5,   -1,  1)
+  y2 <- c(-1, -0.5,    0.5,  1, -1)
   h1a <- data.frame(x = x1, y = y1)
   h1b <- data.frame(x = x2, y = y2)
   xx <- .825
@@ -83,21 +87,21 @@ make_hexsticker2 <- function(pkg, pkg_size, pkg_y = -.33, bg1, bg2, border1,
   y2 <- c(-.95, -yy,  yy,    .95, -.95)
   h2a <- data.frame(x = x1, y = y1)
   h2b <- data.frame(x = x2, y = y2)
-  ggplot(h1a, aes(x, y)) +
-    geom_polygon(fill = border1, size = 0) +
-    geom_polygon(data = h1b, fill = border2, size = 0) +
-    geom_polygon(data = h2a, fill = bg1, size = 0) +
-    geom_polygon(data = h2b, fill = bg2, size = 0) +
-    geom_text(data = data.frame(x = .475, y = icon_y),
-      aes(label = icon), family = fa,
+  ggplot2::ggplot(h1a, ggplot2::aes(x, y)) +
+    ggplot2::geom_polygon(fill = border1, size = 0) +
+    ggplot2::geom_polygon(data = h1b, fill = border2, size = 0) +
+    ggplot2::geom_polygon(data = h2a, fill = bg1, size = 0) +
+    ggplot2::geom_polygon(data = h2b, fill = bg2, size = 0) +
+    ggplot2::geom_text(data = data.frame(x = .475, y = icon_y),
+      ggplot2::aes(label = icon), family = fa,
       color = icon_color, size = icon_size, angle = -8) +
-    geom_text(data = data.frame(x = -.475, y = icon_y),
-      aes(label = icon), family = fa,
+    ggplot2::geom_text(data = data.frame(x = -.475, y = icon_y),
+      ggplot2::aes(label = icon), family = fa,
       color = icon_color, size = icon_size, angle = 8) +
-    theme_void() +
-    annotate("text", -.25, pkg_y, label = pkg, family = family,
+    ggplot2::theme_void() +
+    ggplot2::annotate("text", -.25, pkg_y, label = pkg, family = family,
       size = pkg_size, color = pkg_color) +
-    annotate("text", .45, -.66, label = url, family = family,
+    ggplot2::annotate("text", .45, -.66, label = url, family = url_family,
       size = 5, angle = 30, color = url_color)
 }
 
@@ -111,10 +115,10 @@ p <- make_hexsticker(pkg = "rtweet", bg = "#ffffff", border = "#002255", icon = 
   url = "rtweet.info", pkg_color = "#003366",
   url_color = "#003366", fa = "Font Awesome 5 Brands")
 
-p + ggsave("PNG/rtweet.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/rtweet.png", width = (1.73/2) * 8,
     height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/rtweet.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/rtweet.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -129,10 +133,10 @@ p <- make_hexsticker(pkg = "textfeatures", bg = "#3366ff", border = "#002299",
   url = "", pkg_color = "#ffffff",
   fa = "Font Awesome 5 Free Solid")
 
-p + ggsave("PNG/textfeatures.png", width = (1.73/2) * 8, height = 8,
+p + ggplot2::ggsave("PNG/textfeatures.png", width = (1.73/2) * 8, height = 8,
     units = "in", bg = "transparent")
 
-p + ggsave("SVG/textfeatures.svg", width = (1.73/2) * 8, height = 8,
+p + ggplot2::ggsave("SVG/textfeatures.svg", width = (1.73/2) * 8, height = 8,
   units = "in", bg = "transparent")
 
 ##----------------------------------------------------------------------------##
@@ -146,10 +150,10 @@ p <- make_hexsticker(pkg = "pkgverse", bg = "#d16cb8", border = "#220022", icon 
   url = "", pkg_color = "#ffffff",
   fa = "Font Awesome 5 Free Solid")
 
-p + ggsave("PNG/pkgverse.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/pkgverse.png", width = (1.73/2) * 8, height = 8, units = "in",
     bg = "transparent")
 
-p + ggsave("SVG/pkgverse.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/pkgverse.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 
@@ -163,10 +167,10 @@ p <- make_hexsticker(bg = "#f0f0f0", border = "#00440a", family = "Avenir Heavy"
   icon_color = "#2d8244", icon_size = 50,
   url = "")
 
-p + ggsave("PNG/tfse.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/tfse.png", width = (1.73/2) * 8, height = 8, units = "in",
     bg = "transparent")
 
-p + ggsave("SVG/tfse.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/tfse.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 
@@ -182,15 +186,15 @@ p <- make_hexsticker2(bg1 = "#111111", bg2 = "#333333",
   icon = "", fa = "Font Awesome 5 Free Solid",
   icon_color = "#bbbbbb", icon_size = 42, icon_y = .2,
   url = "mikewk.shinyapps.io/botornot", url_color = "#ffffff") +
-  geom_line(data = data.frame(x = c(.2, .725), y = c(-.025, .3125)),
+  ggplot2::geom_line(data = data.frame(x = c(.2, .725), y = c(-.025, .3125)),
     color = "#991111", size = 4) +
-  geom_line(data = data.frame(x = c(-.2, -.65), y = c(-.055, -.12)),
+  ggplot2::geom_line(data = data.frame(x = c(-.2, -.65), y = c(-.055, -.12)),
     color = "#119911", size = 3)
 
-p + ggsave("PNG/tweetbotornot.png", width = (1.73/2) * 8, height = 8,
+p + ggplot2::ggsave("PNG/tweetbotornot.png", width = (1.73/2) * 8, height = 8,
   units = "in", bg = "transparent")
 
-p + ggsave("SVG/tweetbotornot.svg", width = (1.73/2) * 8, height = 8,
+p + ggplot2::ggsave("SVG/tweetbotornot.svg", width = (1.73/2) * 8, height = 8,
   units = "in", bg = "transparent")
 
 
@@ -204,10 +208,10 @@ p <- make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy"
   icon_color = "#F1B82D", icon_size = 64,
   url = "")
 
-p + ggsave("PNG/tidyversity.png", width = (1.73/2) * 8, height = 8,
+p + ggplot2::ggsave("PNG/tidyversity.png", width = (1.73/2) * 8, height = 8,
   units = "in", bg = "transparent")
 
-p + ggsave("SVG/tidyversity.svg", width = (1.73/2) * 8, height = 8,
+p + ggplot2::ggsave("SVG/tidyversity.svg", width = (1.73/2) * 8, height = 8,
   units = "in", bg = "transparent")
 
 
@@ -222,10 +226,10 @@ make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy",
   icon_color = "#F1B82D", icon_size = 64,
   url = "")
 
-p + ggsave("PNG/tidyreg.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/tidyreg.png", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
-p + ggsave("SVG/tidyreg.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/tidyreg.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 
@@ -239,10 +243,10 @@ p <- make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy"
   icon_color = "#F1B82D", icon_size = 64,
   url = "")
 
-p + ggsave("PNG/tidysem.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/tidysem.png", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
-p + ggsave("SVG/tidysem.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/tidysem.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 
@@ -256,10 +260,10 @@ p <- make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy"
   icon_color = "#F1B82D", icon_size = 64,
   url = "")
 
-p + ggsave("PNG/tidymlm.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/tidymlm.png", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
-p + ggsave("SVG/tidymlm.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/tidymlm.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 
@@ -273,10 +277,10 @@ p <- make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy"
   icon_color = "#F1B82D", icon_size = 64,
   url = "")
 
-p + ggsave("PNG/tidycor.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/tidycor.png", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
-p + ggsave("SVG/tidycor.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/tidycor.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 
@@ -291,10 +295,10 @@ p <- make_hexsticker(bg = "#7D7D7D", border = "#000000", family = "Avenir Heavy"
   icon_color = "#F1B82D", icon_size = 64,
   url = "")
 
-p + ggsave("PNG/tidycat.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/tidycat.png", width = (1.73/2) * 8, height = 8, units = "in",
     bg = "transparent")
 
-p + ggsave("SVG/tidycat.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/tidycat.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 ##----------------------------------------------------------------------------##
@@ -307,10 +311,10 @@ p <- make_hexsticker(bg = "greenyellow", border = "#003333", family = "Avenir He
   icon_color = "#003333", icon_size = 64,
   url = "")
 
-p + ggsave("PNG/funique.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/funique.png", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
-p + ggsave("SVG/funique.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/funique.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 
@@ -327,10 +331,10 @@ p <- make_hexsticker(bg = "#FFA500", border = "#994500", family = "Avenir Heavy"
   icon_color = "#ffffff", icon_size = 70,
   url = "")
 
-p + ggsave("PNG/name2sex.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/name2sex.png", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
-p + ggsave("SVG/name2sex.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/name2sex.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 ##----------------------------------------------------------------------------##
@@ -343,10 +347,10 @@ p <- make_hexsticker(bg = "#ffffff", border = "#000000", family = "Avenir Heavy"
   icon_color = "#000000", icon_size = 70,
   url = "")
 
-p + ggsave("PNG/nytimes.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/nytimes.png", width = (1.73/2) * 8, height = 8, units = "in",
     bg = "transparent")
 
-p + ggsave("SVG/nytimes.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/nytimes.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 ##----------------------------------------------------------------------------##
@@ -360,10 +364,10 @@ p <- make_hexsticker(bg = "#ffffff", border = "#000000", family = "Avenir Heavy"
   icon_color = "#000000", icon_size = 70,
   url = "")
 
-p + ggsave("PNG/nyt.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/nyt.png", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
-p + ggsave("SVG/nyt.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/nyt.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 ##----------------------------------------------------------------------------##
@@ -377,10 +381,10 @@ p <- make_hexsticker(bg = "#99aaff", border = "#000000", family = "Avenir Heavy"
   icon_color = "#000000", icon_size = 60,
   url = "")
 
-p + ggsave("PNG/kaggler.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/kaggler.png", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
-p + ggsave("SVG/kaggler.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/kaggler.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 ##----------------------------------------------------------------------------##
@@ -393,10 +397,10 @@ p <- make_hexsticker(bg = "#d16166", border = "#550000", family = "Avenir Heavy"
   icon_color = "#ffffff", icon_size = 54,
   url = "")
 
-p + ggsave("PNG/chr.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/chr.png", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
-p + ggsave("SVG/chr.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/chr.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 ##----------------------------------------------------------------------------##
@@ -409,10 +413,10 @@ p <- make_hexsticker(bg = "#ffffff", border = "#444266", family = "Avenir Heavy"
   icon_color = "#a8a4e8", icon_size = 66,
   url = "")
 
-p + ggsave("PNG/useapi.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/useapi.png", width = (1.73/2) * 8, height = 8, units = "in",
     bg = "transparent")
 
-p + ggsave("SVG/useapi.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/useapi.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 ##----------------------------------------------------------------------------##
@@ -426,10 +430,10 @@ p <- make_hexsticker(bg = "#ffffff", border = "#003366", family = "Avenir Heavy"
   icon_color = "#a8a4e8", icon_size = 74, icon_y = .28,
   url = "")
 
-p + ggsave("PNG/hexagon.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/hexagon.png", width = (1.73/2) * 8, height = 8, units = "in",
     bg = "transparent")
 
-p + ggsave("SVG/hexagon.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/hexagon.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 ##----------------------------------------------------------------------------##
@@ -443,10 +447,10 @@ p <- make_hexsticker(bg = "#a55029", border = "#331100", family = "Avenir Heavy"
   icon_color = "#ffffff", icon_size = 74, icon_y = .3,
   url = "")
 
-p + ggsave("PNG/warcraft.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/warcraft.png", width = (1.73/2) * 8, height = 8, units = "in",
     bg = "transparent")
 
-p + ggsave("SVG/warcraft.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/warcraft.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 
@@ -460,10 +464,10 @@ p <- make_hexsticker(bg = "#faff00", border = "#8100a8", family = "Avenir Heavy"
   icon_color = "#8100a8", icon_size = 64, icon_y = .3,
   url = "")
 
-p + ggsave("PNG/ig.png", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("PNG/ig.png", width = (1.73/2) * 8, height = 8, units = "in",
     bg = "transparent")
 
-p + ggsave("SVG/ig.svg", width = (1.73/2) * 8, height = 8, units = "in",
+p + ggplot2::ggsave("SVG/ig.svg", width = (1.73/2) * 8, height = 8, units = "in",
   bg = "transparent")
 
 
@@ -472,18 +476,19 @@ p + ggsave("SVG/ig.svg", width = (1.73/2) * 8, height = 8, units = "in",
 ##----------------------------------------------------------------------------##
 
 
-p <- make_hexsticker2(bg1 = "#999999", bg2 = "#f0f0f0",
-  border1 = "#000000", border2 = "#666666",
-  family = "Avenir Heavy", pkg = "", pkg_size = 21,
-  pkg_color = "#000066", pkg_y = -.315,
-  icon = " word ", fa = "Avenir Heavy",
-  icon_color = "#000000", icon_size = 22, icon_y = .2,
-  url = "")
+p <- make_hexsticker2(bg1 = "#555555", bg2 = "#dddddd",
+  border1 = "#555555", border2 = "#dddddd",
+  family = "Avenir Next LT Pro Heavy", pkg = "", pkg_size = 21,
+  pkg_color = "transparent", pkg_y = -.315,
+  icon = " word ", fa = "Avenir Next LT Pro Heavy",
+  icon_color = "#999999", icon_size = 22, icon_y = .2,
+  url = "wordword.mikewk.com", url_color = "#999999",
+  url_family = "Avenir Next LT Pro Bold")
 
-p + ggsave("PNG/wordword.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/wordword.png", width = (1.73/2) * 8,
     height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/wordword.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/wordword.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -497,10 +502,10 @@ p <- make_hexsticker(bg = "#00a89c", border = "#002211", family = "Avenir Heavy"
   icon_color = "#ffffff", icon_size = 64, icon_y = .25,
   url = "")
 
-p + ggsave("PNG/smartread.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/smartread.png", width = (1.73/2) * 8,
     height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/smartread.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/smartread.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -514,10 +519,10 @@ p <- make_hexsticker(bg = "#e53941", border = "#000000", family = "Avenir Heavy"
   icon_color = "#ffffff", icon_size = 64, icon_y = .25,
   url = "")
 
-p + ggsave("PNG/newsAPI.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/newsAPI.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/newsAPI.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/newsAPI.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -533,10 +538,10 @@ p <- make_hexsticker_backspot(bg = "#00CCBB", border = "#004455", family = "Aven
   url = "", backspot_data = data.frame(x = c(-.3, .3, .3, -.3), y = c(-.275, -.275, .3, .3)),
   backspot_fill = "white")
 
-p + ggsave("PNG/research-gate.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/research-gate.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/research-gate.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/research-gate.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -553,10 +558,10 @@ p <- make_hexsticker(bg = "#ffffff", border = "#000000", family = "Avenir Heavy"
   icon_color = "#000000", icon_size = 64, icon_y = .25,
   url = "")
 
-p + ggsave("PNG/friendship.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/friendship.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/friendship.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/friendship.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 ##----------------------------------------------------------------------------##
@@ -569,10 +574,10 @@ p <- make_hexsticker(bg = "#ffffff", border = "#db3236", family = "Avenir Heavy"
   icon_color = "#4885ed", icon_size = 64, icon_y = .275,
   url = "")
 
-p + ggsave("PNG/google-scholar.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/google-scholar.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/google-scholar.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/google-scholar.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -586,10 +591,10 @@ p <- make_hexsticker(bg = "#ffffff", border = "#000000", family = "Avenir Heavy"
   icon_color = "#ffffff", icon_size = 64, icon_y = .25,
   url = "")
 
-p + ggsave("PNG/cv.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/cv.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/cv.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/cv.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -603,10 +608,10 @@ p <- make_hexsticker(bg = "#000000", border = "#000000", family = "Avenir Heavy"
   icon_color = "#ffffff", icon_size = 98, icon_y = .05,
   url = "")
 
-p + ggsave("PNG/github.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/github.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/github.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/github.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -623,10 +628,10 @@ p <- make_hexsticker(bg = "#1DA1F2", border = "#1DA1F2", family = "Avenir Heavy"
   icon_color = "#ffffff", icon_size = 88, icon_y = .05,
   url = "")
 
-p + ggsave("PNG/twitter.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/twitter.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/twitter.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/twitter.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -643,10 +648,10 @@ p <- make_hexsticker(bg = "#F1B82D", border = "#000000", family = "Avenir Heavy"
   url = "stat.mikewk.com", url_color = "#000000",
   url_size = 10, url_x = .38, url_y = -.67)
 
-p + ggsave("PNG/journ8016.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/journ8016.png", width = (1.73/2) * 8,
            height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/journ8016.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/journ8016.svg", width = (1.73/2) * 8,
            height = 8, units = "in", bg = "transparent")
 
 
@@ -664,10 +669,10 @@ p <- make_hexsticker(bg = "#ff66aa", border = "#993366", family = "Avenir Heavy"
   url = "getwebdata.mikewk.com", url_color = "#ffffff",
   url_size = 7, url_x = .38, url_y = -.67)
 
-p + ggsave("PNG/getwebdata.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/getwebdata.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/getwebdata.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/getwebdata.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -683,10 +688,10 @@ p <- make_hexsticker(bg = "#303036", border = "#000000", family = "Avenir Heavy"
   url = "data-scribers.mikewk.com", url_color = "#dd3399",
   url_size = 7, url_x = .38, url_y = -.67)
 
-p + ggsave("PNG/data-scribers.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/data-scribers.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/data-scribers.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/data-scribers.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -708,10 +713,10 @@ p <- make_hexsticker(bg = "#F1B82D", border = "#000000", family = "Avenir Heavy"
   url = "mizzourahmd.mikewk.com", url_color = "#000000",
   url_size = 7, url_x = .38, url_y = -.67)
 
-p + ggsave("PNG/mizzourahmd.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/mizzourahmd.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/mizzourahmd.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/mizzourahmd.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -729,10 +734,10 @@ p <- make_hexsticker(bg = "#fff0ff", border = "#6f606f", family = "Avenir Heavy"
   url = "reflowdoc.mikewk.com", url_color = "#cc8800",
   url_size = 8, url_x = .38, url_y = -.67)
 
-p + ggsave("PNG/reflowdoc.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/reflowdoc.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/reflowdoc.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/reflowdoc.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -751,7 +756,7 @@ p <- make_hexsticker(bg = "#ffffff", border = "#2f4879",
   url = "columbiamissourian.com", url_color = "#2f4879",
   url_size = 9, url_x = .38, url_y = -.67)
 
-p + ggsave("PNG/comissourian.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/comissourian.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -771,9 +776,9 @@ p <- make_hexsticker(bg = "#2244bb", border = "#002266", family = "Avenir Heavy"
   url = "viewtweets.mikewk.com", url_color = "#ffffff",
   url_size = 7, url_x = .38, url_y = -.67)
 
-p + ggsave("PNG/viewtweets.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/viewtweets.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
-p + ggsave("SVG/viewtweets.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/viewtweets.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -792,9 +797,9 @@ p <- make_hexsticker(bg = "#c5050c", border = "#282728", family = "Avenir Heavy"
   url = "qualtricks.mikewk.com", url_color = "#f7f7f7",
   url_size = 8, url_x = .38, url_y = -.67)
 
-p + ggsave("PNG/qualtricks.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/qualtricks.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
-p + ggsave("SVG/qualtricks.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/qualtricks.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -814,10 +819,10 @@ p <- make_hexsticker_backspot(
   backspot_data = data.frame(x = c(-.2, .2, .2, -.2), y = c(-.1, -.1, .55, .55)),
   backspot_fill = "#ffffff")
 
-p + ggsave("PNG/dapr.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/dapr.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/dapr.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/dapr.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -839,11 +844,11 @@ p <- make_hexsticker(bg = "#F1B82D", border = "#000000",
   url_size = 8, url_x = .38, url_y = -.67)
 
 p <- p +
-  geom_text(data = data.frame(x = 0, y = -.35),
-    aes(label = "Analytics"), family = "Clarendon LT Std",
+  ggplot2::geom_text(data = data.frame(x = 0, y = -.35),
+    ggplot2::aes(label = "Analytics"), family = "Clarendon LT Std",
     color = "#000000", size = 21)
 
-p + ggsave("PNG/mudsa.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/mudsa.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -859,9 +864,9 @@ p <- make_hexsticker(bg = "#600060", border = "#300030", family = "Avenir Heavy"
   url = "dowhen.mikewk.com", url_color = "#f060f0",
   url_size = 8, url_x = .38, url_y = -.67)
 
-p + ggsave("PNG/dowhen.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/dowhen.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
-p + ggsave("SVG/dowhen.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/dowhen.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -880,15 +885,15 @@ p <- make_hexsticker2(bg1 = "#111111", bg2 = "#333333",
   icon = " ", fa = "Font Awesome 5 Free Solid",
   icon_color = "#bbbbbb", icon_size = 42, icon_y = .2,
   url = "shouldbeverified.mikewk.com", url_color = "#ffffff") +
-  geom_line(data = data.frame(x = c(.2, .725), y = c(-.025, .3125)),
+  ggplot2::geom_line(data = data.frame(x = c(.2, .725), y = c(-.025, .3125)),
     color = "#991111", size = 4) +
-  geom_line(data = data.frame(x = c(-.2, -.65), y = c(-.055, -.12)),
+  ggplot2::geom_line(data = data.frame(x = c(-.2, -.65), y = c(-.055, -.12)),
     color = "#119911", size = 3)
 
-p + ggsave("PNG/shouldbeverified.png", width = (1.73/2) * 8, height = 8,
+p + ggplot2::ggsave("PNG/shouldbeverified.png", width = (1.73/2) * 8, height = 8,
   units = "in", bg = "transparent")
 
-p + ggsave("SVG/shouldbeverified.svg", width = (1.73/2) * 8, height = 8,
+p + ggplot2::ggsave("SVG/shouldbeverified.svg", width = (1.73/2) * 8, height = 8,
   units = "in", bg = "transparent")
 
 
@@ -903,10 +908,10 @@ p <- make_hexsticker(pkg = "h.rtweet", bg = "#aa0066cc", border = "#440022", ico
   url = "github.com/mkearney/h.rtweet", pkg_color = "#ffffff", url_size = 5,
   url_color = "#ffffff", fa = "Font Awesome 5 Brands", url_x = .4, url_y = -.665)
 
-p + ggsave("PNG/h.rtweet.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/h.rtweet.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/h.rtweet.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/h.rtweet.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
@@ -918,16 +923,16 @@ p + ggsave("SVG/h.rtweet.svg", width = (1.73/2) * 8,
 ##----------------------------------------------------------------------------##
 
 
-p <- make_hexsticker(bg = "#3B528BFF", border = "#440154FF", family = "Comfortaa Bold",
+p <- make_hexsticker(bg = "#3B528BFF", border = "#22013cFF", family = "Comfortaa Bold",
   pkg = "mmmm", pkg_size = 36, pkg_color = "#AADC32FF", pkg_y = .05,
   icon = "", fa = "Font Awesome 5 Brands",
   icon_color = "#AADC32FF", icon_size = 28, icon_y = .295,
   url = "mmmm.mikewk.com", url_color = "#AADC32FF",
   url_size = 6, url_x = .38, url_y = -.67)
 
-p + ggsave("PNG/mmm.png", width = (1.73/2) * 8,
+p + ggplot2::ggsave("PNG/mmmm.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
-p + ggsave("SVG/mmm.svg", width = (1.73/2) * 8,
+p + ggplot2::ggsave("SVG/mmmm.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 

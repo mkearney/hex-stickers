@@ -128,6 +128,12 @@ list.files("PNG") %>%
 
 <p align="center">
 
+<img src='PNG/mmmm.png' width='200px' />
+
+</p>
+
+<p align="center">
+
 <img src='PNG/mudsa.png' width='200px' />
 
 </p>
@@ -291,5 +297,11 @@ list.files("PNG") %>%
 <p align="center">
 
 <img src='PNG/wordword.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/wordword2.png' width='200px' />
 
 </p>
