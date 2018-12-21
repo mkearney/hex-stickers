@@ -299,9 +299,3 @@ list.files("PNG") %>%
 <img src='PNG/wordword.png' width='200px' />
 
 </p>
-
-<p align="center">
-
-<img src='PNG/wordword2.png' width='200px' />
-
-</p>
