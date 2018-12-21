@@ -908,3 +908,26 @@ p + ggsave("PNG/h.rtweet.png", width = (1.73/2) * 8,
 
 p + ggsave("SVG/h.rtweet.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
+
+
+
+
+
+##----------------------------------------------------------------------------##
+##                                    mmm                                     ##
+##----------------------------------------------------------------------------##
+
+
+p <- make_hexsticker(bg = "#3B528BFF", border = "#440154FF", family = "Comfortaa Bold",
+  pkg = "mmm", pkg_size = 42, pkg_color = "#AADC32FF", pkg_y = .05,
+  icon = "", fa = "Font Awesome 5 Brands",
+  icon_color = "#AADC32FF", icon_size = 28, icon_y = .295,
+  url = "mmm.mikewk.com", url_color = "#AADC32FF",
+  url_size = 6, url_x = .38, url_y = -.67)
+
+p + ggsave("PNG/mmm.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggsave("SVG/mmm.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
