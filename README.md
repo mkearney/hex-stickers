@@ -218,6 +218,12 @@ list.files("PNG") %>%
 
 <p align="center">
 
+<img src='PNG/tbltools.png' width='200px' />
+
+</p>
+
+<p align="center">
+
 <img src='PNG/textfeatures.png' width='200px' />
 
 </p>
