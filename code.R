@@ -936,3 +936,20 @@ p + ggplot2::ggsave("PNG/mmmm.png", width = (1.73/2) * 8,
 p + ggplot2::ggsave("SVG/mmmm.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
+
+##----------------------------------------------------------------------------##
+##                                  tbltools                                  ##
+##----------------------------------------------------------------------------##
+
+p <- make_hexsticker(bg = "#3B528BFF", border = "#22013cFF", family = "Avenir Heavy",
+  pkg = "tbltools", pkg_size = 36, pkg_color = "#AADC32FF", pkg_y = -.255,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#AADC32FF", icon_size = 72, icon_y = .295,
+  url = "tbltools.mikewk.com", url_color = "#AADC32FF",
+  url_size = 8, url_x = .38, url_y = -.67)
+
+p + ggplot2::ggsave("PNG/tbltools.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggplot2::ggsave("SVG/tbltools.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
