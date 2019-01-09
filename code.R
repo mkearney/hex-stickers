@@ -953,3 +953,33 @@ p + ggplot2::ggsave("PNG/tbltools.png", width = (1.73/2) * 8,
 
 p + ggplot2::ggsave("SVG/tbltools.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
+
+
+
+
+##----------------------------------------------------------------------------##
+##                                 datasci7637                                ##
+##----------------------------------------------------------------------------##
+
+
+p <- make_hexsticker(bg = "#F1B82D", border = "#000000", family = "Avenir Heavy",
+  pkg = "DATA_SCI", pkg_size = 28, pkg_color = "#000000", pkg_y = -.23,
+  icon = "",
+  fa = "Font Awesome 5 Brands",
+  icon_color = "#000000", icon_size = 30, icon_y = .45,
+  url = "social-media.mikewk.com", url_color = "#000000",
+  url_size = 6, url_x = .38, url_y = -.67)
+
+p <- p +
+  ggplot2::geom_text(data = data.frame(x = 0, y = -.51),
+    ggplot2::aes(label = "7637"), family = "Avenir Heavy",
+    size = 28) +
+  ggplot2::geom_text(data = data.frame(x = 0, y = .14),
+    ggplot2::aes(label = ""), family = "Font Awesome 5 Brands",
+    color = "#000000", size = 30)
+
+p + ggplot2::ggsave("PNG/datasci7637.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggplot2::ggsave("SVG/datasci7637.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
