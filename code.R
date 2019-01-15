@@ -985,8 +985,9 @@ p + ggplot2::ggsave("SVG/datasci7637.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
 
+
 ##----------------------------------------------------------------------------##
-##                                  tbltools                                  ##
+##                            rstudioconf19::ml                               ##
 ##----------------------------------------------------------------------------##
 
 p <- make_hexsticker(bg = "#3B528BFF", border = "#22013cFF", family = "Avenir Heavy",
@@ -1006,4 +1007,21 @@ p + ggplot2::ggsave("PNG/rstudioconf19-machine-learning.png", width = (1.73/2) *
   height = 8, units = "in", bg = "transparent")
 
 p + ggplot2::ggsave("SVG/rstudioconf19-machine-learning.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+##----------------------------------------------------------------------------##
+##                                  dataviz                                   ##
+##----------------------------------------------------------------------------##
+
+p <- make_hexsticker(bg = "#3B528BFF", border = "#22013cFF", family = "Avenir Heavy",
+  pkg = "dataviz", pkg_size = 36, pkg_color = "#AADC32FF", pkg_y = -.255,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#AADC32FF", icon_size = 62, icon_y = .300,
+  url = "dataviz.mikewk.com", url_color = "#AADC32FF",
+  url_size = 8, url_x = .38, url_y = -.67)
+
+p + ggplot2::ggsave("PNG/dataviz.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggplot2::ggsave("SVG/dataviz.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
