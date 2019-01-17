@@ -990,19 +990,19 @@ p + ggplot2::ggsave("SVG/datasci7637.svg", width = (1.73/2) * 8,
 ##                            rstudioconf19::ml                               ##
 ##----------------------------------------------------------------------------##
 
-p <- make_hexsticker(bg = "#3B528BFF", border = "#22013cFF", family = "L-Consolas-Bold",
-  pkg = "rstudio::conf_19(", pkg_size = 15, pkg_color = "#AADC32FF", pkg_y = .23,
-  icon = "", fa = "L-Consolas-Bold",  #icon#"",
+p <- make_hexsticker(bg = "#3B528BFF", border = "#22013cFF", family = "Inconsolata Bold",
+  pkg = "rstudio::conf_19(", pkg_size = 16, pkg_color = "#AADC32FF", pkg_y = .23,
+  icon = "", fa = "Inconsolata Bold",  #icon#"",
   icon_color = "#AADC32FF", icon_size = 42, icon_y = .580,
   url = "rstd.io/conf", url_color = "#AADC32FF",
   url_size = 8, url_x = .38, url_y = -.67)
 p <- p +
   ggplot2::geom_text(data = data.frame(x = 0, y = -.045),
     ggplot2::aes(x = x, y = y, label = "  \"machine-learning\""),
-    family = "L-Consolas-Bold", size = 13, color = "#DDA500") +
+    family = "Inconsolata Bold", size = 14, color = "#DDA500") +
   ggplot2::geom_text(data = data.frame(x = 0, y = -.25),
     ggplot2::aes(x = x, y = y, label = ")                "),
-    family = "L-Consolas-Bold", size = 15, color = "#AADC32FF")
+    family = "Inconsolata Bold", size = 16, color = "#AADC32FF")
 p + ggplot2::ggsave("PNG/rstudioconf19-machine-learning.png", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
 
