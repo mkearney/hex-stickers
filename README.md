@@ -56,7 +56,25 @@ list.files("PNG") %>%
 
 <p align="center">
 
+<img src='PNG/datasci7637.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/dataviz.png' width='200px' />
+
+</p>
+
+<p align="center">
+
 <img src='PNG/dowhen.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/fml.png' width='200px' />
 
 </p>
 
@@ -189,6 +207,12 @@ list.files("PNG") %>%
 <p align="center">
 
 <img src='PNG/researchgate.png' width='200px' />
+
+</p>
+
+<p align="center">
+
+<img src='PNG/rstudioconf19-machine-learning.png' width='200px' />
 
 </p>
 
