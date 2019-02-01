@@ -1044,3 +1044,27 @@ p + ggplot2::ggsave("PNG/fml.png", width = (1.73/2) * 8,
 
 p + ggplot2::ggsave("SVG/fml.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
+
+
+
+
+
+##----------------------------------------------------------------------------##
+##                                   R CoMo                                   ##
+##----------------------------------------------------------------------------##
+
+
+p <- make_hexsticker(bg = "#F1B82D", border = "#000000", family = "Avenir Heavy",
+  pkg = "R-CoMo", pkg_size = 30, pkg_color = "#000000", pkg_y = -.3,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#000000", icon_size = 64, icon_y = .285,
+  url = "r-como.xyz             ", url_color = "#000000",
+  url_size = 8, url_x = .38, url_y = -.67)
+
+p + ggplot2::ggsave("PNG/r-como.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+p + ggplot2::ggsave("SVG/r-como.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+

@@ -194,6 +194,12 @@ list.files("PNG") %>%
 
 <p align="center">
 
+<img src='PNG/r-como.png' width='200px' />
+
+</p>
+
+<p align="center">
+
 <img src='PNG/reflowdoc.png' width='200px' />
 
 </p>
