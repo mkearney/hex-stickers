@@ -1035,3 +1035,24 @@ p + ggplot2::ggsave("PNG/googler.png", width = (1.73/2) * 8,
 
 p + ggplot2::ggsave("SVG/googler.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
+
+
+
+
+##----------------------------------------------------------------------------##
+##                               patientinfo                                  ##
+##----------------------------------------------------------------------------##
+source("funs.R")
+p <- make_hexsticker(bg = "#ee3333", border = "#660000", family = "Avenir Next LT Pro", face = "bold",
+  pkg = "patientinfo", pkg_size = 26, pkg_color = "#ffffff", pkg_y = -.25,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#ffffff", icon_size = 54, icon_y = .28,
+  url = "", url_color = "#00aa00",
+  url_size = 8, url_x = .38, url_y = -.67)
+
+p + ggplot2::ggsave("PNG/patientinfo.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+browseURL("PNG/patientinfo.png")
+p + ggplot2::ggsave("SVG/patientinfo.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
