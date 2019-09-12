@@ -3,16 +3,20 @@ source("funs.R")
 ##                                   rtweet                                   ##
 ##----------------------------------------------------------------------------##
 
-p <- make_hexsticker(pkg = "rtweet", bg = "#ffffff", border = "#002255", icon = "",
+p <- make_hexsticker(pkg = "rtweet", bg = "#ffffff", border = "#002255", icon ="", #"",
   icon_color = "#003366cc", family = "Avenir Heavy", icon_size = 80, pkg_size = 32,
   url = "rtweet.info", pkg_color = "#003366",
-  url_color = "#003366", fa = "Font Awesome 5 Brands")
+  url_color = "#003366", fa = "Font Awesome 5 Free Solid")
 
-p + ggplot2::ggsave("PNG/rtweet.png", width = (1.73/2) * 8,
+img <- png::readPNG("PNG/bird.png")
+g <- grid::rasterGrob(img, interpolate=TRUE)
+
+p + ggplot2::annotation_custom(g, xmin=-0.5, xmax=0.5, ymin=-.2, ymax=.75) +
+  ggplot2::ggsave("PNG/rtweet.png", width = (1.73/2) * 8,
     height = 8, units = "in", bg = "transparent")
 
-p + ggplot2::ggsave("SVG/rtweet.svg", width = (1.73/2) * 8,
-  height = 8, units = "in", bg = "transparent")
+#p + ggplot2::ggsave("SVG/rtweet.svg", width = (1.73/2) * 8,
+#  height = 8, units = "in", bg = "transparent")
 
 
 ##----------------------------------------------------------------------------##
