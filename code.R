@@ -1060,3 +1060,25 @@ p + ggplot2::ggsave("PNG/patientinfo.png", width = (1.73/2) * 8,
 browseURL("PNG/patientinfo.png")
 p + ggplot2::ggsave("SVG/patientinfo.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
+
+
+
+##----------------------------------------------------------------------------##
+##                                 wactor                                     ##
+##----------------------------------------------------------------------------##
+source("funs.R")
+p <- make_hexsticker(bg = "#CEDB26", border = "#3E403C",
+  family = "Avenir Next LT Pro", face = "bold",
+  pkg = "      actor", pkg_size = 26, pkg_color = "#3E403C", pkg_y = -.04,
+  icon_x = -.375,
+  icon = "", fa = "Font Awesome 5 ",
+  icon_color = "#3E403C", icon_size = 54, icon_y = .01,
+  url = "", url_color = "#3E403C",
+  url_size = 8, url_x = .38, url_y = -.67)
+
+p + ggplot2::ggsave("PNG/wactor.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+browseURL("PNG/wactor.png")
+
+
