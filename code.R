@@ -1082,3 +1082,28 @@ p + ggplot2::ggsave("PNG/wactor.png", width = (1.73/2) * 8,
 browseURL("PNG/wactor.png")
 
 
+
+
+
+##----------------------------------------------------------------------------##
+##                                 datasci7001                                ##
+##----------------------------------------------------------------------------##
+source("funs.R")
+p <- make_hexsticker(bg = "#F1B82D", border = "#000000", family = "Avenir Next LT Pro Medium",
+  pkg = "DATA_SCI", pkg_size = 24, pkg_color = "#000000", pkg_y = -.19,
+  icon =  "",
+  fa = "Font Awesome 5 Brands",
+  icon_color = "#000000", icon_size = 62, icon_y = .365,
+  url = "networks.mikewk.com", url_color = "#000000",
+  url_size = 6, url_x = .38, url_y = -.67)
+
+p <- p +
+  ggplot2::geom_text(data = data.frame(x = 0, y = -.51),
+    ggplot2::aes(label = "7001"), family = "Avenir Next LT Pro Medium",
+    size = 24)
+
+p + ggplot2::ggsave("PNG/datasci7001.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+browseURL("PNG/datasci7001.png")
+p + ggplot2::ggsave("SVG/datasci7637.svg", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
