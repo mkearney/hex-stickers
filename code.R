@@ -1110,3 +1110,24 @@ p + ggplot2::annotation_custom(g, xmin=-0.35, xmax=0.325, ymin=-.2, ymax=.8) +
 browseURL("PNG/datasci7001.png")
 p + ggplot2::ggsave("SVG/datasci7637.svg", width = (1.73/2) * 8,
   height = 8, units = "in", bg = "transparent")
+
+
+
+
+
+
+##----------------------------------------------------------------------------##
+##                                 readthat                                   ##
+##----------------------------------------------------------------------------##
+source("funs.R")
+p <- make_hexsticker(bg = "greenyellow", border = "#660066", family = "Avenir Next LT Pro", face = "bold",
+  pkg = "readthat", pkg_size = 26, pkg_color = "#660066", pkg_y = -.25,
+  icon = "", fa = "Font Awesome 5 Free Solid",
+  icon_color = "#660066", icon_size = 54, icon_y = .28,
+  url = "", url_color = "#00aa00",
+  url_size = 8, url_x = .38, url_y = -.67)
+
+p + ggplot2::ggsave("PNG/readthat.png", width = (1.73/2) * 8,
+  height = 8, units = "in", bg = "transparent")
+
+browseURL("PNG/readthat.png")
