@@ -4,11 +4,12 @@ if (!requireNamespace("ggplot2", quietly = TRUE)) {
 }
 
 ## function to make basic hex sticker
-make_hexsticker <- function(pkg, pkg_size, pkg_color, pkg_y = -.33,
+make_hexsticker <- function(pkg, pkg_size, pkg_color, pkg_x = 0, pkg_y = -.33,
   bg, border,
   icon, icon_color, icon_size, family, face = "plain",
   url, url_size = 8, url_x = .225, url_y = -.76,
   url_color = "transparent",
+  url_face = face,
   url_family = family,
   fa = "Font Awesome 5 Brands",
   icon_y = .25, icon_x = 0) {
@@ -29,10 +30,10 @@ make_hexsticker <- function(pkg, pkg_size, pkg_color, pkg_y = -.33,
       ggplot2::aes(label = icon), family = fa,
       color = icon_color, size = icon_size) +
     ggplot2::theme_void() +
-    ggplot2::annotate("text", 0, pkg_y, label = pkg, family = family,
+    ggplot2::annotate("text", pkg_x, pkg_y, label = pkg, family = family,
       size = pkg_size, color = pkg_color, fontface = face) +
     ggplot2::annotate("text", url_x, url_y, label = url, family = url_family,
-      size = url_size, angle = 30, color = url_color, fontface = face)
+      size = url_size, angle = 30, color = url_color, fontface = url_face)
 }
 
 ## function to make basic hex sticker
