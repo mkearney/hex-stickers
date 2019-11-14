@@ -3,38 +3,25 @@ source("funs.R")
 ##                                   rtweet                                   ##
 ##----------------------------------------------------------------------------##
 
-p <- make_hexsticker(pkg = "rtweet", bg = "#ffffff", border = "#002255", icon ="", #"",
-  icon_color = "#003366cc", family = "Avenir Heavy", icon_size = 80, pkg_size = 32,
-  url = "rtweet.info", pkg_color = "#003366",
-  url_color = "#003366", fa = "Font Awesome 5 Free Solid")
 
-img <- png::readPNG("PNG/bird.png")
-g <- grid::rasterGrob(img, interpolate=TRUE)
-
-p + ggplot2::annotation_custom(g, xmin=-0.5, xmax=0.5, ymin=-.2, ymax=.75) +
-  ggplot2::ggsave("PNG/rtweet.png", width = (1.73/2) * 8,
-    height = 8, units = "in", bg = "transparent")
-
-#p + ggplot2::ggsave("SVG/rtweet.svg", width = (1.73/2) * 8,
-#  height = 8, units = "in", bg = "transparent")
-
-
-
-p <- make_hexsticker(pkg = "rtweet", bg = "#ffffff", border = "#002255", icon ="", #"",
-  icon_color = "#003366cc", family = "Avenir Next LT Pro Medium", icon_size = 80, pkg_size = 32,
-  pkg_y = -0.33, pkg_x = 0.008,
-  url = "rtweet.info", pkg_color = "#00000088", face = "plain",
+p <- make_hexsticker(pkg = "rtweet", bg = "#ffffff", border = "#002255", icon = "",
+  icon_color = "#00000088", family = "Avenir Next LT Pro Medium",
+  icon_size = 20, pkg_size = 32,
+  icon_y = 0.595,
+  icon_x = .0025,
+  pkg_x = 0.0025, pkg_y = -0.25,
+  url = "rtweet.info", pkg_color = "#00000088", face = "bold",
   url_family = "Avenir Next LT Pro Medium",
   url_size = 8,
-  url_x = 0.23, url_y = -0.76,
+  url_x = 0.3105, url_y = -0.7,
   url_face = "plain",
   url_color = "#00000088", fa = "Font Awesome 5 Free Solid") +
-  ggplot2::geom_text(data = data.frame(x = .00, y = -.327),
+  ggplot2::geom_text(data = data.frame(x = .00, y = -.2475),
     ggplot2::aes(label = "rtweet"), color = "#114477",
     family = "Avenir Next LT Pro Medium",
-    fontface = "plain",
+    fontface = "bold",
     size = 32) +
-  ggplot2::geom_text(data = data.frame(x = 0.228, y = -0.7585),
+  ggplot2::geom_text(data = data.frame(x = 0.3075, y = -0.6975),
     ggplot2::aes(label = "rtweet.info"), color = "#114477",
     family = "Avenir Next LT Pro Medium",
     fontface = "plain",
@@ -47,28 +34,39 @@ img2 <- png::readPNG("PNG/birdshadow.png")
 g <- grid::rasterGrob(img, interpolate = TRUE)
 g2 <- grid::rasterGrob(img2, interpolate = TRUE)
 
-p + ggplot2::annotation_custom(g2, xmin=-0.495, xmax=0.505, ymin=-.205, ymax=.745) +
-  ggplot2::annotation_custom(g, xmin=-0.5, xmax=0.5, ymin=-.2, ymax=.75) +
+p + ggplot2::annotation_custom(g2, xmin=-0.3975, xmax=0.4025, ymin=-.1, ymax=.7) +
+  ggplot2::annotation_custom(g, xmin=-0.4, xmax=0.4, ymin=-.0975, ymax=.7025) +
   ggplot2::ggsave("PNG/rtweet.png", width = (1.73/2) * 8,
     height = 8, units = "in", bg = "transparent")
 
+resize_image("PNG/rtweet.png")
 
 ##----------------------------------------------------------------------------##
 ##                                textfeatures                                ##
 ##----------------------------------------------------------------------------##
 
-
 p <- make_hexsticker(pkg = "textfeatures", bg = "#3366ff", border = "#002299",
-  icon = "", icon_color = "#ffffff", icon_size = 60,
-  pkg_size = 26, pkg_y = -.32, family = "Avenir Heavy",
-  url = "", pkg_color = "#ffffff",
-  fa = "Font Awesome 5 Free Solid")
+  icon = "",
+  icon_color = "#000000cc", icon_size = 60,
+  pkg_size = 24, pkg_y = -.3205, family = "Avenir Next LT Pro",
+  pkg_x = 0.005,
+  face = "bold",
+  icon_x = 0.005, icon_y = 0.245,
+  url = "", pkg_color = "#000000cc",
+  fa = "Font Awesome 5 Free Solid") +
+  ggplot2::geom_text(ggplot2::aes(x = 0, y = -0.320, label = "textfeatures"),
+    family = "Avenir Next LT Pro", fontface = "bold", size = 24, color = "#ffffff") +
+  ggplot2::geom_text(ggplot2::aes(x = 0, y = 0.25, label = ""),
+    family = "Font Awesome 5 Free Solid", fontface = "bold", size = 60,
+    color = "#ffffff")
+
 
 p + ggplot2::ggsave("PNG/textfeatures.png", width = (1.73/2) * 8, height = 8,
     units = "in", bg = "transparent")
 
-p + ggplot2::ggsave("SVG/textfeatures.svg", width = (1.73/2) * 8, height = 8,
-  units = "in", bg = "transparent")
+resize_image("PNG/textfeatures.png")
+file.copy("PNG/textfeatures.png", "~/Dropbox/textfeatures.png", overwrite = T)
+browseURL("PNG/textfeatures.png")
 
 ##----------------------------------------------------------------------------##
 ##                                  pkgverse                                  ##
@@ -1375,40 +1373,6 @@ browseURL("PNG/rtweet.download.png")
 
 
 
-p <- make_hexsticker(pkg = "rtweet", bg = "#ffffff", border = "#002255", icon = "",
-  icon_color = "#00000088", family = "Avenir Next LT Pro Medium",
-  icon_size = 20, pkg_size = 32,
-  icon_y = 0.595,
-  icon_x = .0025,
-  pkg_x = 0.0025, pkg_y = -0.25,
-  url = "rtweet.info", pkg_color = "#00000088", face = "bold",
-  url_family = "Avenir Next LT Pro Medium",
-  url_size = 8,
-  url_x = 0.3105, url_y = -0.7,
-  url_face = "plain",
-  url_color = "#00000088", fa = "Font Awesome 5 Free Solid") +
-  ggplot2::geom_text(data = data.frame(x = .00, y = -.2475),
-    ggplot2::aes(label = "rtweet"), color = "#114477",
-    family = "Avenir Next LT Pro Medium",
-    fontface = "bold",
-    size = 32) +
-  ggplot2::geom_text(data = data.frame(x = 0.3075, y = -0.6975),
-    ggplot2::aes(label = "rtweet.info"), color = "#114477",
-    family = "Avenir Next LT Pro Medium",
-    fontface = "plain",
-    angle = 30,
-    size = 8)
-
-img <- png::readPNG("PNG/bird.png")
-img2 <- png::readPNG("PNG/birdshadow.png")
-
-g <- grid::rasterGrob(img, interpolate = TRUE)
-g2 <- grid::rasterGrob(img2, interpolate = TRUE)
-
-p + ggplot2::annotation_custom(g2, xmin=-0.3975, xmax=0.4025, ymin=-.1, ymax=.7) +
-  ggplot2::annotation_custom(g, xmin=-0.4, xmax=0.4, ymin=-.0975, ymax=.7025) +
-  ggplot2::ggsave("PNG/rtweet.png", width = (1.73/2) * 8,
-    height = 8, units = "in", bg = "transparent")
 
 browseURL("PNG/rtweet.png")
 
