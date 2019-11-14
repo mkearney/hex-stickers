@@ -109,6 +109,6 @@ make_hexsticker2 <- function(pkg, pkg_size, pkg_y = -.33, bg1, bg2, border1,
 resize_image <- function(x) {
   img <- magick::image_read(x, density = 300)
   img <- magick::image_resize(img, "600x")
-  magick::image_write(imgs, x, density = 300, quality = 100, depth = 16,
+  magick::image_write(img, x, density = 300, quality = 100, depth = 16,
     format = "png")
 }

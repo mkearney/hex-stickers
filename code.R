@@ -5,17 +5,17 @@ source("funs.R")
 
 
 p <- make_hexsticker(pkg = "rtweet", bg = "#ffffff", border = "#002255", icon = "",
-  icon_color = "#00000088", family = "Avenir Next LT Pro Medium",
+  icon_color = "#000000bb", family = "Avenir Next LT Pro Medium",
   icon_size = 20, pkg_size = 32,
   icon_y = 0.595,
   icon_x = .0025,
   pkg_x = 0.0025, pkg_y = -0.25,
-  url = "rtweet.info", pkg_color = "#00000088", face = "bold",
+  url = "rtweet.info", pkg_color = "#000000bb", face = "bold",
   url_family = "Avenir Next LT Pro Medium",
   url_size = 8,
   url_x = 0.3105, url_y = -0.7,
   url_face = "plain",
-  url_color = "#00000088", fa = "Font Awesome 5 Free Solid") +
+  url_color = "#000000bb", fa = "Font Awesome 5 Free Solid") +
   ggplot2::geom_text(data = data.frame(x = .00, y = -.2475),
     ggplot2::aes(label = "rtweet"), color = "#114477",
     family = "Avenir Next LT Pro Medium",
@@ -40,6 +40,7 @@ p + ggplot2::annotation_custom(g2, xmin=-0.3975, xmax=0.4025, ymin=-.1, ymax=.7)
     height = 8, units = "in", bg = "transparent")
 
 resize_image("PNG/rtweet.png")
+file.copy("PNG/rtweet.png", "~/Dropbox/rtweet.png", overwrite = T)
 
 ##----------------------------------------------------------------------------##
 ##                                textfeatures                                ##
@@ -1313,17 +1314,17 @@ source("funs.R")
 ##----------------------------------------------------------------------------##
 
 p <- make_hexsticker(pkg = "rtweet.", bg = "#ffffff", border = "#002255", icon ="", #"",
-  icon_color = "#00000088", family = "Avenir Next LT Pro Medium",
+  icon_color = "#000000bb", family = "Avenir Next LT Pro Medium",
   icon_size = 20, pkg_size = 26,
   icon_y = 0.595,
   icon_x = .0025,
   pkg_x = 0.0025, pkg_y = -0.11,
-  url = "rtweet.download", pkg_color = "#00000088", face = "bold",
+  url = "rtweet.download", pkg_color = "#000000bb", face = "bold",
   url_family = "Avenir Next LT Pro Medium",
   url_size = 8,
   url_x = 0.3105, url_y = -0.7,
   url_face = "plain",
-  url_color = "#00000088", fa = "Font Awesome 5 Free Solid") +
+  url_color = "#000000bb", fa = "Font Awesome 5 Free Solid") +
   ggplot2::geom_text(data = data.frame(x = 0.00, y = 0.6),
     ggplot2::aes(label = ""), color = "#114477",
     family = "Font Awesome 5 Free Solid",
@@ -1334,7 +1335,7 @@ p <- make_hexsticker(pkg = "rtweet.", bg = "#ffffff", border = "#002255", icon =
     fontface = "bold",
     size = 26) +
   ggplot2::geom_text(data = data.frame(x = .0025, y = -.34),
-    ggplot2::aes(label = "download"), color = "#00000088",
+    ggplot2::aes(label = "download"), color = "#000000bb",
     family = "Avenir Next LT Pro Medium",
     fontface = "bold",
     size = 26) +
@@ -1361,6 +1362,8 @@ p + ggplot2::annotation_custom(g2, xmin=-0.2975, xmax=0.3025, ymin=-.0025, ymax=
   ggplot2::ggsave("PNG/rtweet.download.png", width = (1.73/2) * 8,
     height = 8, units = "in", bg = "transparent")
 
+resize_image("PNG/rtweet.download.png")
+file.copy("PNG/rtweet.download.png", "~/Dropbox/rtweet.download.png", overwrite = T)
 browseURL("PNG/rtweet.download.png")
 #p + ggplot2::ggsave("SVG/rtweet.svg", width = (1.73/2) * 8,
 #  height = 8, units = "in", bg = "transparent")
